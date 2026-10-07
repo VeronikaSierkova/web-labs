@@ -1,4 +1,13 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 :root {
+    --cols: 7;          /* кількість колонок на дошці */
     --paper: #f2f4f7;   /* тло сторінки */
     --board: #33507d;   /* тло дошки */
     --hole:  #f2f4f7;   /* порожня клітинка */
@@ -9,5 +18,24 @@
  
 body {
     background-color: var(--paper);
+    padding: 16px; /* відступи від країв екрана */
 }
 
+.board {
+    display: grid;
+    grid-template-columns: repeat(var(--cols, 7), 1fr);
+    gap: var(--gap);
+    padding: var(--gap);
+    background: var(--board);
+    /* не ширше 420px, але й не ширше 88% екрана */
+    width: min(420px, 88vw);
+    box-sizing: border-box; /* враховуємо паддінги у ширину */
+    border-radius: 8px;
+    margin: 0 auto;
+}
+ 
+.cell {
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: var(--hole);
+}
