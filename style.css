@@ -39,3 +39,29 @@ body {
     border-radius: 50%;
     background: var(--hole);
 }
+
+.controls {
+    display: grid;
+    grid-template-columns: repeat(var(--cols, 7), 1fr);
+    gap: var(--gap);
+    width: min(420px, 88vw);
+    box-sizing: border-box;
+    padding: var(--gap); /* ТОЧНО ТАКИЙ ЖЕ ПАДДІНГ, ЯК У ДОШКИ! */
+    margin: 0 auto;
+}
+
+.col-btn {
+    padding: 6px 0;
+    background-color: #ffffff;
+    color: var(--board);
+    border: 1.5px solid var(--board);
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.col-btn:hover {
+  background-color: #76c1ff;
+}
