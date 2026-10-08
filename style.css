@@ -2,14 +2,14 @@
 *::before,
 *::after {
     box-sizing: border-box;
-    margin: 0;
+    margin: 0; /*прибирає зовнішні відступи за замовчуванням, які браузери автоматично додають до багатьох тегів*/
     padding: 0;
 }
 
 :root {
-    --cols: 7;          /* кількість колонок на дошці */
-    --paper: #f2f4f7;   /* тло сторінки */
-    --board: #33507d;   /* тло дошки */
+    --cols: 7;          
+    --paper: #f2f4f7;
+    --board: #34a484;
     --hole:  #f2f4f7;   /* порожня клітинка */
     --disc-1: #c8324a;  /* фішка першого гравця */
     --disc-2: #e0a32e;  /* фішка другого */
@@ -29,7 +29,6 @@ body {
     background: var(--board);
     /* не ширше 420px, але й не ширше 88% екрана */
     width: min(420px, 88vw);
-    box-sizing: border-box; /* враховуємо паддінги у ширину */
     border-radius: 8px;
     margin: 0 auto;
 }
@@ -45,14 +44,14 @@ body {
     grid-template-columns: repeat(var(--cols, 7), 1fr);
     gap: var(--gap);
     width: min(420px, 88vw);
-    box-sizing: border-box;
-    padding: var(--gap); /* ТОЧНО ТАКИЙ ЖЕ ПАДДІНГ, ЯК У ДОШКИ! */
+    padding: var(--gap);
     margin: 0 auto;
+    border-radius: 8px;
 }
 
 .col-btn {
     padding: 6px 0;
-    background-color: #ffffff;
+    background-color: #d1fff4;
     color: var(--board);
     border: 1.5px solid var(--board);
     border-radius: 6px;
@@ -63,5 +62,5 @@ body {
 }
 
 .col-btn:hover {
-  background-color: #76c1ff;
+  background-color: #5adbb0;
 }
