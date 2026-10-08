@@ -76,7 +76,7 @@ body[data-theme="dark"] {
     --hole:  #131a24;   
     --disc-1: #d80024;  
     --disc-2: #d6ff40;
-    --btn-bg: #1f365d;
+    --btn-bg: #6d92d2;
     --text-color: white;
     --btn-hover: #5497f5;
 }
@@ -95,3 +95,13 @@ body[data-theme="dark"] {
 .theme-toggle-btn:hover {
     background-color: var(--btn-hover);
 }
+
+.rotate-hint {
+    margin-top: 12px;
+    font-size: 13px;
+    color: var(--text-color);
+    opacity: 0.85;
+    text-align: center;
+    line-height: 1.4;
+}
+
