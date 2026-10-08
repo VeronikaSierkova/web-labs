@@ -10,14 +10,18 @@
     --cols: 7;          
     --paper: #f2f4f7;
     --board: #34a484;
-    --hole:  #f2f4f7;   /* порожня клітинка */
-    --disc-1: #c8324a;  /* фішка першого гравця */
-    --disc-2: #e0a32e;  /* фішка другого */
+    --hole:  #f2f4f7;   
+    --disc-1: #c8324a;  
+    --disc-2: #e0a32e;  
     --gap: 6px;
+    --btn-bg: #d1fff4;
+    --text-color: black;
+    --btn-hover: #5af8c8;
 }
  
 body {
     background-color: var(--paper);
+    color: var(--text-color);
     padding: 16px; /* відступи від країв екрана */
 }
 
@@ -51,7 +55,7 @@ body {
 
 .col-btn {
     padding: 6px 0;
-    background-color: #d1fff4;
+    background-color: var(--btn-bg);
     color: var(--board);
     border: 1.5px solid var(--board);
     border-radius: 6px;
@@ -62,5 +66,32 @@ body {
 }
 
 .col-btn:hover {
-  background-color: #5adbb0;
+  background-color: var(--btn-hover);
+}
+
+/* темна тема */
+body[data-theme="dark"] {
+    --paper: #131a24;
+    --board: #1247a1;
+    --hole:  #131a24;   
+    --disc-1: #d80024;  
+    --disc-2: #d6ff40;
+    --btn-bg: #1f365d;
+    --text-color: white;
+    --btn-hover: #5497f5;
+}
+.theme-toggle-btn {
+    padding: 6px 12px;
+    background-color: var(--btn-bg);
+    color: var(--text-color);
+    border: 1.5px solid var(--board);
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.theme-toggle-btn:hover {
+    background-color: var(--btn-hover);
 }
