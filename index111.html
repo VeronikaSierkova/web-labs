@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="uk">
+<head>
+    <meta charset="utf-8">
+    <title>Хрестики-нулики</title>
+    <style>
+        .board { display: grid; grid-template-columns: repeat(3, 64px); gap: 6px; }
+        .cell  { height: 64px; font-size: 30px; }
+    </style>
+</head>
+<body>
+    <div class="board" id="board"></div>   <!-- сюди render складе клітинки -->
+    <p id="status"></p>
+    <button id="reset">Нова гра</button>
+    <script src="ttt.js"></script>         <!-- сценарій пишете ви -->
+    </body>
+</html>
