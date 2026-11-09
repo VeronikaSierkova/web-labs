@@ -1,4 +1,3 @@
-// 1. Об'єкт стану гри
 let state = {
     size: 3,
     board: [
@@ -16,7 +15,6 @@ const boardEl = document.getElementById("board");
 const statusEl = document.getElementById("status");
 const resetBtn = document.getElementById("reset");
 
-// Функція генерації тексту статусу
 function statusText() {
     if (state.status === "playing") {
         return `Хід: Гравець ${state.current} (${MARK[state.current]})`;
@@ -24,7 +22,6 @@ function statusText() {
     return "Вільних клітинок немає";
 }
 
-// 2. Функція render — малює дошку заново з масиву стану
 function render() {
     boardEl.textContent = "";
 
@@ -32,6 +29,11 @@ function render() {
         for (let c = 0; c < state.size; c++) {
             const cell = document.createElement("button");
             cell.className = "cell";
+            if (state.board[r][c] === 1) {
+                cell.classList.add("player-1");
+            } else if (state.board[r][c] === 2) {
+                cell.classList.add("player-2");
+            }
             cell.dataset.row = r;
             cell.dataset.col = c;
             cell.textContent = MARK[state.board[r][c]];
@@ -57,13 +59,11 @@ boardEl.addEventListener("click", function (event) {
     // Зайнята клітинка не перезаписується
     if (state.board[r][c] !== 0) return;
 
-    // Ставимо позначку поточного гравця
+    // Ставлю позначку поточного гравця
     state.board[r][c] = state.current;
 
-    // Перехід ходу до іншого гравця
     state.current = state.current === 1 ? 2 : 1;
 
-    // Перевірка на вільні клітинки (чи є ще нулі в масиві)
     let hasEmpty = false;
     for (let row = 0; row < state.size; row++) {
         for (let col = 0; col < state.size; col++) {
@@ -77,7 +77,6 @@ boardEl.addEventListener("click", function (event) {
     render();
 });
 
-// Кнопка "Нова гра"
 if (resetBtn) {
     resetBtn.addEventListener("click", function () {
         state.board = [
@@ -91,5 +90,4 @@ if (resetBtn) {
     });
 }
 
-// Первинний запуск
 render();
