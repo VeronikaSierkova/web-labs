@@ -6,21 +6,20 @@
     <style>
         .board { display: grid; grid-template-columns: repeat(3, 64px); gap: 6px; }
         .cell  { height: 64px; font-size: 30px; }
-        /* Колір для хрестика (Гравець 1) */
+      
         .cell.player-1 {
             color: #ff4757;
         }
-        
-        /* Колір для нолика (Гравець 2) */
+    
         .cell.player-2 {
             color: #2ed573;
         }
     </style>
 </head>
 <body>
-    <div class="board" id="board"></div>   <!-- сюди render складе клітинки -->
+    <div class="board" id="board"></div>   
     <p id="status"></p>
     <button id="reset">Нова гра</button>
-    <script src="ttt.js"></script>         <!-- сценарій пишете ви -->
+    <script src="ttt.js"></script>         
     </body>
 </html>
