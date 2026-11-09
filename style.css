@@ -98,10 +98,51 @@ body[data-theme="dark"] {
 
 .rotate-hint {
     margin-top: 12px;
-    font-size: 13px;
+    font-size: 16px;
     color: var(--text-color);
     opacity: 0.85;
     text-align: center;
     line-height: 1.4;
 }
 
+.cell.player-1 {
+    background-color: var(--disc-1);
+}
+
+.cell.player-2 {
+    background-color: var(--disc-2);
+}
+
+#status {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 6px 0;
+}
+
+#reset {
+    margin-top: 8px;
+    padding: 8px 16px;
+    font-size: 15px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--paper);
+    text-align: center;
+    padding: 10px 0;
+}
+
+h1 {
+    font-size: 36px;
+}
+
+h2 {
+    font-size: 28px;
+}
+
+p {
+    font-size: 16px;
+}

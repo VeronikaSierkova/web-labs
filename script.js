@@ -79,4 +79,40 @@ function render() {
     }
 }
 
+const controlsEl = document.querySelector(".controls");
+
+controlsEl.addEventListener("click", function (event) {
+    const btn = event.target.closest(".col-btn");
+    if (!btn) return;
+
+    // Знаходимо, якою за рахунком є кнопка серед усіх кнопок (від 0 до 6) перетавор на масив
+    const buttons = Array.from(controlsEl.querySelectorAll(".col-btn"));
+    const col = buttons.indexOf(btn);
+    const row = dropRow(col);
+    if (row === -1) return;
+    state.board[row][col] = state.current;
+    state.current = state.current === 1 ? 2 : 1;
+    render();
+});
+
+function dropRow(col) {
+  for (let r = state.rows - 1; r >= 0; r--) {
+    if (state.board[r][col] === 0) {
+      return r; // Повертає перший вільний рядок знизу
+    }
+  }
+  return -1; // Якщо колонка заповнена
+}
+
+const resetBtn = document.getElementById("reset");
+
+if (resetBtn) {
+    resetBtn.addEventListener("click", function () {
+        state.board = createBoard(ROWS, COLS);
+        state.current = 1;
+        state.status = "playing";
+        render();
+    });
+}
+
 render()
