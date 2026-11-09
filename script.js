@@ -45,3 +45,38 @@ console.log("Об'єкт стану гри:", state);
 console.log(`Кількість рядів у масиві: ${state.board.length} (має бути 6)`);
 console.log(`Кількість колонок у масиві: ${state.board[0].length} (має бути 7)`);
 
+const boardEl = document.getElementById("board");
+const statusEl = document.getElementById("status");
+
+function statusText() {
+    if (state.status === "playing") {
+        const colorName = state.current === 1 ? "Червоні" : "Жовті"; 
+        return `Хід: Гравець ${state.current} (${colorName})`;
+    }
+    return "Вільних клітинок немає";
+}
+
+function render() {
+    boardEl.textContent = "";
+    for (let r = 0; r < state.rows; r++) {
+        for (let c = 0; c < state.cols; c++) {
+        const cell = document.createElement("div");
+        cell.className = "cell";
+        const value = state.board[r][c];
+                if (value === 1) {
+                    cell.classList.add("player-1");
+                } else if (value === 2) {
+                    cell.classList.add("player-2");
+                }
+        cell.dataset.row = r;            // координати лишаються на самому елементі —
+        cell.dataset.col = c;            // потім обробник прочитає їх звідси
+        boardEl.append(cell);
+        }
+    }
+
+    if (statusEl) {
+        statusEl.textContent = statusText();
+    }
+}
+
+render()
